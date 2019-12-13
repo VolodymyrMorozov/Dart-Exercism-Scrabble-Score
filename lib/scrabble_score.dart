@@ -28,8 +28,8 @@ Map<String, int> chars = {
 };
 
 int score(String word) => word
+    .toUpperCase()
     .split('')
-    .expand<int>((el) =>
-        chars.containsKey(el.toUpperCase()) ? [chars[el.toUpperCase()]] : [0])
+    .expand<int>((el) => chars.containsKey(el) ? [chars[el]] : [0])
     .toList()
     .fold(0, (prev, element) => element + prev);
